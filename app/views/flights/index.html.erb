@@ -1,0 +1,17 @@
+<h1>Search for Flights</h1>
+
+<%= form_with model: @flight, method: :get do |form| %>
+  <%= form.label :departure_airport, "Departure Airport: " %>
+  <%= form.collection_select :departure_airport, @departure_airports, :id, :code %>
+
+  <%= form.label :arrival_airport, "Arrival Airport: " %>
+  <%= form.collection_select :arrival_airport, @arrival_airports, :id, :code %>
+
+  <%= form.label :start_datetime, "Date: " %>
+  <%= form.select :start_datetime, @departure_dates %>
+
+  <%= form.label :passengers, "Number of Passengers: " %>
+  <%= form.number_field :passengers, in: 1..4, value: 1  %>
+
+  <%= form.submit "Search" %>
+<% end %>
