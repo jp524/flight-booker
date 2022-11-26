@@ -12,32 +12,74 @@ Airport.delete_all
 Airport.create!([{ code: 'ATL' }, { code: 'PEK' }, { code: 'LAX' }, { code: 'DXB' }, { code: 'HND' },
                  { code: 'ORD' }, { code: 'LHR' }, { code: 'PVG' }, { code: 'CDG' }, { code: 'DFW' }])
 
-Flight.create!({ number: "NK233", departure_airport_id: 1, arrival_airport_id: 10,
-                 start_datetime: DateTime.new(2022, 12, 20, 13, 5, 0), duration: 149 })
-
-Flight.create!({ number: "NH125", departure_airport_id: 3, arrival_airport_id: 5,
-                 start_datetime: DateTime.new(2022, 12, 21, 23, 45, 0), duration: 745 })
-
-Flight.create!({ number: "CA1835", departure_airport_id: 2, arrival_airport_id: 8,
-                 start_datetime: DateTime.new(2022, 12, 22, 2, 0, 0), duration: 135 })
-
-Flight.create!({ number: "AF659", departure_airport_id: 4, arrival_airport_id: 9,
-                 start_datetime: DateTime.new(2022, 12, 23, 7, 10, 0), duration: 455 })
-
-Flight.create!({ number: "BA294", departure_airport_id: 6, arrival_airport_id: 7,
-                 start_datetime: DateTime.new(2022, 12, 24, 11, 0, 0), duration: 460 })
-
-Flight.create!({ number: "NK1025", departure_airport_id: 10, arrival_airport_id: 1,
-                 start_datetime: DateTime.new(2022, 12, 25, 13, 53, 0), duration: 127 })
-
-Flight.create!({ number: "NH126", departure_airport_id: 5, arrival_airport_id: 3,
-                 start_datetime: DateTime.new(2022, 12, 26, 12, 5, 0), duration: 600 })
-
-Flight.create!({ number: "CA1884", departure_airport_id: 8, arrival_airport_id: 2,
-                 start_datetime: DateTime.new(2022, 12, 27, 8, 15, 0), duration: 145 })
-
-Flight.create!({ number: "AF662", departure_airport_id: 9, arrival_airport_id: 4,
-                 start_datetime: DateTime.new(2022, 12, 28, 10, 10, 0), duration: 705 })
-
-Flight.create!({ number: "BA295", departure_airport_id: 7, arrival_airport_id: 6,
-                 start_datetime: DateTime.new(2022, 12, 29, 11, 20, 0), duration: 535 })
+Flight.create!(
+  [{
+    number: 'NK233',
+    departure_airport_id: 1,
+    arrival_airport_id: 10,
+    departure_date: Date.new(2022, 12, 20),
+    departure_time: Time.new(2022, 12, 20, 8, 5, 0, '-05:00'),
+    duration: 149
+  }, {
+    number: 'NH125',
+    departure_airport_id: 3,
+    arrival_airport_id: 5,
+    departure_date: Date.new(2022, 12, 21),
+    departure_time: Time.new(2022, 12, 21, 15, 45, 0, '-08:00'),
+    duration: 745
+  }, {
+    number: 'CA1835',
+    departure_airport_id: 2,
+    arrival_airport_id: 8,
+    departure_date: Date.new(2022, 12, 22),
+    departure_time: Time.new(2022, 12, 22, 8, 0, 0, '+06:00'),
+    duration: 135
+  }, {
+    number: 'AF659',
+    departure_airport_id: 4,
+    arrival_airport_id: 9,
+    departure_date: Date.new(2022, 12, 23),
+    departure_time: Time.new(2022, 12, 23, 11, 10, 0, '+04:00'),
+    duration: 455
+  }, {
+    number: 'BA294',
+    departure_airport_id: 6,
+    arrival_airport_id: 7,
+    departure_date: Date.new(2022, 12, 24),
+    departure_time: Time.new(2022, 12, 24, 17, 0, 0, '-06:00'),
+    duration: 460
+  }, {
+    number: 'NK1025',
+    departure_airport_id: 10,
+    arrival_airport_id: 1,
+    departure_date: Date.new(2022, 12, 25),
+    departure_time: Time.new(2022, 12, 25, 18, 30, 0, '-06:00'),
+    duration: 127
+  }, {
+    number: 'NH126',
+    departure_airport_id: 5,
+    arrival_airport_id: 3,
+    departure_date: Date.new(2022, 12, 26),
+    departure_time: Time.new(2022, 12, 26, 21, 5, 0, '+09:00'),
+    duration: 600
+  }, {
+    number: 'CA1884',
+    departure_airport_id: 8, arrival_airport_id: 2,
+    departure_date: Date.new(2022, 12, 26),
+    departure_time: Time.new(2022, 12, 26, 16, 15, 0, '+08:00'),
+    duration: 145
+  }, {
+    number: 'AF662',
+    departure_airport_id: 9,
+    arrival_airport_id: 4, departure_date: Date.new(2022, 12, 27),
+    departure_time: Time.new(2022, 12, 27, 13, 35, 0, '+01:00'),
+    duration: 705
+  }, {
+    number: 'BA295',
+    departure_airport_id: 7,
+    arrival_airport_id: 6,
+    departure_date: Date.new(2022, 12, 28),
+    departure_time: Time.new(2022, 12, 28, 11, 20, 0, '+00:00'),
+    duration: 535
+  }]
+)
