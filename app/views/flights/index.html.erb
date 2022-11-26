@@ -1,14 +1,14 @@
 <h1>Search for Flights</h1>
 
 <%= form_with model: @flight, method: :get do |form| %>
-  <%= form.label :departure_airport, "Departure Airport: " %>
-  <%= form.collection_select :departure_airport, Airport.order(:code), :id, :code, selected: 1 %>
+  <%= form.label :departure_airport_id, "Departure Airport: " %>
+  <%= form.collection_select :departure_airport_id, Airport.order(:code), :id, :code, selected: 1 %>
 
-  <%= form.label :arrival_airport, "Arrival Airport: " %>
-  <%= form.collection_select :arrival_airport, Airport.order(:code), :id, :code, selected: 9 %>
+  <%= form.label :arrival_airport_id, "Arrival Airport: " %>
+  <%= form.collection_select :arrival_airport_id, Airport.order(:code), :id, :code, selected: 9 %>
 
-  <%= form.label :date, "Date: " %>
-  <%= form.collection_select :date, @flights.distinct_departure_dates, :departure_date, :departure_date_formatted %>
+  <%= form.label :departure_date, "Date: " %>
+  <%= form.collection_select :departure_date, @flights.distinct_departure_dates, :departure_date, :departure_date_formatted %>
 
   <%= form.label :passengers, "Number of Passengers: " %>
   <%= form.number_field :passengers, in: 1..4, value: 1  %>
@@ -16,8 +16,8 @@
   <%= form.submit "Search" %>
 <% end %>
 
-<%# <% unless @search_results.empty? %> %>
-  <%# <% @search_results.each do |flight| %> %>
-    <%# <%= flight.number %> %>
-  <%# <% end %> %>
-<%# <% end %> %>
+<% if @search_results.any? %>
+  <% @search_results.each do |flight| %>
+    <%= flight.number %>
+  <% end %>
+<% end %>
