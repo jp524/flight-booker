@@ -7,11 +7,17 @@
   <%= form.label :arrival_airport, "Arrival Airport: " %>
   <%= form.collection_select :arrival_airport, @arrival_airports, :id, :code %>
 
-  <%= form.label :start_datetime, "Date: " %>
-  <%= form.select :start_datetime, @departure_dates %>
+  <%= form.label :date, "Date: " %>
+  <%= form.select :date, @departure_dates %>
 
   <%= form.label :passengers, "Number of Passengers: " %>
   <%= form.number_field :passengers, in: 1..4, value: 1  %>
 
   <%= form.submit "Search" %>
+<% end %>
+
+<% unless @search_results.empty? %>
+  <% @search_results.each do |flight| %>
+    <%= flight.number %>
+  <% end %>
 <% end %>
