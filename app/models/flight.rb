@@ -7,4 +7,8 @@ class Flight < ApplicationRecord
   def departure_date_formatted
     departure_date.strftime('%b %d, %Y')
   end
+
+  def departure_time_formatted
+    departure_time.strftime('%I:%M %p %Z')
+  end
 end
