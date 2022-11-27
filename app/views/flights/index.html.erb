@@ -2,10 +2,10 @@
 
 <%= form_with model: @flight, method: :get do |form| %>
   <%= form.label :departure_airport_id, "Departure Airport: " %>
-  <%= form.collection_select :departure_airport_id, Airport.order(:code), :id, :code, selected: 1 %>
+  <%= form.collection_select :departure_airport_id, Airport.order(:city), :id, :city, selected: 1 %>
 
   <%= form.label :arrival_airport_id, "Arrival Airport: " %>
-  <%= form.collection_select :arrival_airport_id, Airport.order(:code), :id, :code, selected: 10 %>
+  <%= form.collection_select :arrival_airport_id, Airport.order(:city), :id, :city, selected: 10 %>
 
   <%= form.label :departure_date, "Date: " %>
   <%= form.collection_select :departure_date, @flights.distinct_departure_dates, :departure_date, :departure_date_formatted %>

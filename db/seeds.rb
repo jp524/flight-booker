@@ -9,8 +9,16 @@
 Flight.delete_all
 Airport.delete_all
 
-Airport.create!([{ code: 'ATL' }, { code: 'PEK' }, { code: 'LAX' }, { code: 'DXB' }, { code: 'HND' },
-                 { code: 'ORD' }, { code: 'LHR' }, { code: 'PVG' }, { code: 'CDG' }, { code: 'DFW' }])
+Airport.create!([{ code: 'ATL', city: 'Atlanta' },
+                 { code: 'PEK', city: 'Beijing' },
+                 { code: 'LAX', city: 'Los Angeles' },
+                 { code: 'DXB', city: 'Dubai' },
+                 { code: 'HND', city: 'Tokyo' },
+                 { code: 'ORD', city: 'Chicago' },
+                 { code: 'LHR', city: 'London' },
+                 { code: 'PVG', city: 'Shanghai' },
+                 { code: 'CDG', city: 'Paris' },
+                 { code: 'DFW', city: 'Dallas-Forth Worth' }])
 
 Flight.create!(
   [{
