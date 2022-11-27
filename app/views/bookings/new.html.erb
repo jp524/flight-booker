@@ -4,6 +4,8 @@
   <%= "Date: #{@selected_flight.departure_date_formatted}" %>
   <%= "Departing from: #{@selected_flight.departure_airport[:city]}" %>
   <%= "Arriving to: #{@selected_flight.arrival_airport[:city]}" %>
+  
+  <%= booking_form.hidden_field :flight_id, value: @selected_flight.id %>
 
   <p>Passenger Information</p>
   <ul>
