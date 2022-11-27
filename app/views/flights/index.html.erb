@@ -18,16 +18,18 @@
 
 <% if params[:commit] %>
   <% if @search_results.any?%>
-  <%# Update to use BookingsController %>
-    <%= form_with model: @flight, method: :get do |form| %>
+    <%= form_with url: new_booking_path, method: :get do |form| %>
       <% @search_results.each do |flight| %>
-        <%= form.radio_button :id, flight.id %>
-        <%= form.label :id,
+        <%= form.radio_button :flight_id, flight.id %>
+        <%= form.label :flight_id,
         "Flight #{flight.number} from #{flight.departure_airport[:code]}
         to #{flight.arrival_airport[:code]}, 
         on #{flight.departure_date_formatted} 
         at #{flight.departure_time_formatted}" %>
+
         <%= form.hidden_field :passengers, value: params[:passengers]%>
+
+        <%= form.submit "Select Flight" %>
       <% end %>
     <% end %>
     <% else %>
