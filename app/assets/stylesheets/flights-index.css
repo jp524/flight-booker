@@ -1,0 +1,8 @@
+.flights-index .radio-button {
+  display: flex;
+  gap: 20px;
+}
+
+.flights-index .radio-button label {
+  font-size: 1.2rem;
+}

@@ -1,36 +1,39 @@
-<h1>Search for Flights</h1>
-
-<%= form_with model: @flight, method: :get do |form| %>
-  <%= form.label :departure_airport_id, "Departure Airport: " %>
-  <%= form.collection_select :departure_airport_id, Airport.order(:city), :id, :city, selected: params[:departure_airport_id] %>
-
-  <%= form.label :arrival_airport_id, "Arrival Airport: " %>
-  <%= form.collection_select :arrival_airport_id, Airport.order(:city), :id, :city, selected: params[:arrival_airport_id] %>
-
-  <%= form.label :departure_date, "Date: " %>
-  <%= form.collection_select :departure_date, @flights.distinct_departure_dates, :departure_date, :departure_date_formatted, selected: params[:departure_date] %>
-
-  <%= form.label :passengers, "Number of Passengers: " %>
-  <%= form.number_field :passengers, in: 1..4, value: params[:passengers]  %>
-
-  <%= form.submit "Search" %>
-<% end %>
-
-<% if params[:commit] %>
-  <% if @search_results.any?%>
-    <%= form_with url: new_booking_path, method: :get do |form| %>
-      <% @search_results.each do |flight| %>
-        <%= form.radio_button :flight_id, flight.id %>
-        <%= form.label :flight_id, flight.number %>
-
-        <%= render partial: "shared/flight_info", locals: {flight: flight} %>
-
-        <%= form.hidden_field :passengers, value: params[:passengers]%>
-
+<div class="flights-index">
+  <h1>Search for Flights</h1>
+  
+  <%= form_with model: @flight, method: :get do |form| %>
+    <%= form.label :departure_airport_id, "Departure Airport: " %>
+    <%= form.collection_select :departure_airport_id, Airport.order(:city), :id, :city, selected: params[:departure_airport_id] %>
+  
+    <%= form.label :arrival_airport_id, "Arrival Airport: " %>
+    <%= form.collection_select :arrival_airport_id, Airport.order(:city), :id, :city, selected: params[:arrival_airport_id] %>
+  
+    <%= form.label :departure_date, "Date: " %>
+    <%= form.collection_select :departure_date, @flights.distinct_departure_dates, :departure_date, :departure_date_formatted, selected: params[:departure_date] %>
+  
+    <%= form.label :passengers, "Number of Passengers: " %>
+    <%= form.number_field :passengers, in: 1..4, value: params[:passengers]  %>
+  
+    <%= form.submit "Search" %>
+  <% end %>
+  
+  <% if params[:commit] %>
+    <% if @search_results.any?%>
+      <%= form_with url: new_booking_path, method: :get do |form| %>
+        <div class="search-result">
+          <% @search_results.each do |flight| %>
+            <div class="radio-button">
+              <%= form.radio_button :flight_id, flight.id %>
+              <%= form.label :flight_id, flight.number %>
+            </div>
+            <%= render partial: "shared/flight_info", locals: {flight: flight} %>
+            <%= form.hidden_field :passengers, value: params[:passengers]%>
+          <% end %>
+        </div>
         <%= form.submit "Select Flight" %>
       <% end %>
-    <% end %>
-    <% else %>
-      <p>No flights found.</p>
-    <% end %>
-<% end %>
+      <% else %>
+        <p>No flights found.</p>
+      <% end %>
+  <% end %>
+</div>

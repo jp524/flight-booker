@@ -53,3 +53,54 @@
 .footer p {
   text-align: center;
 }
+
+/* BODY */
+.body {
+  margin:20px
+}
+
+/* FLIGHT INFO PARTIAL */
+.flight-info {
+  background-color: white;
+  margin: 10px 0;
+  padding: 10px 20px;
+  border: solid 1px lightgrey;
+  border-radius: 8px;
+  box-shadow: 0 3px 3px lightgrey;
+}
+
+.flight-info ul {
+  list-style-type: none;
+}
+
+/* FORMS */
+form {
+  display: flex;
+  flex-direction: column;
+  background-color: #dbeafe;
+  padding: 20px;
+  border: solid 1px lightgrey;
+  border-radius: 8px;
+  box-shadow: 0 3px 3px lightgrey;
+  margin: 20px 0;
+}
+
+select {
+  margin-bottom: 14px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid darkgrey;
+  padding: 2px;
+}
+
+select:hover {
+  background-color: #f0f9ff;
+}
+
+input[type="number"] {
+  margin-bottom: 14px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid darkgrey;
+  padding: 2px;
+}
