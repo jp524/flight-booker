@@ -1,0 +1,13 @@
+<h1>Booking</h1>
+
+<%= "Flight number: #{@booking.flight[:number]}" %>
+<%= "Date: #{@booking.flight.departure_date_formatted}" %>
+<%= "Departing from: #{@booking.flight.departure_airport[:city]}" %>
+<%= "Arriving to: #{@booking.flight.arrival_airport[:city]}" %>
+
+<p>Passenger(s):</p>
+<% @booking.passengers.map do |passenger| %>
+  <ul>
+    <li><%= "#{passenger[:name]}, #{passenger[:email]}" %></li>
+  </ul>
+<% end %>
