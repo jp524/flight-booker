@@ -1,11 +1,9 @@
 <h1>Booking</h1>
 
-<%= "Flight number: #{@booking.flight[:number]}" %>
-<%= "Date: #{@booking.flight.departure_date_formatted}" %>
-<%= "Departing from: #{@booking.flight.departure_airport[:city]}" %>
-<%= "Arriving to: #{@booking.flight.arrival_airport[:city]}" %>
+<p>Flight</p>
+<%= render partial: "shared/flight_info", locals: {flight: @booking.flight} %>
 
-<p>Passenger(s):</p>
+<%= @booking.passengers.length > 1 ? "Passengers" : "Passenger" %>
 <% @booking.passengers.map do |passenger| %>
   <ul>
     <li><%= "#{passenger[:name]}, #{passenger[:email]}" %></li>

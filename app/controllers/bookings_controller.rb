@@ -8,7 +8,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     if @booking.save
-      redirect_to root_path
+      redirect_to @booking
     else
       @selected_flight = Flight.find(params[:flight_id])
       render :new, status: :unprocessable_entity

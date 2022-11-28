@@ -1,10 +1,7 @@
 <h1>New Booking</h1>
 
 <%= form_with model: @booking do |booking_form| %>
-  <%= "Date: #{@selected_flight.departure_date_formatted}" %>
-  <%= "Departing from: #{@selected_flight.departure_airport[:city]}" %>
-  <%= "Arriving to: #{@selected_flight.arrival_airport[:city]}" %>
-  
+  <%= render partial: "shared/flight_info", locals: {flight: @selected_flight} %>
   <%= booking_form.hidden_field :flight_id, value: @selected_flight.id %>
 
   <p>Passenger Information</p>
