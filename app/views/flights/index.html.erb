@@ -21,11 +21,12 @@
     <%= form_with url: new_booking_path, method: :get do |form| %>
       <% @search_results.each do |flight| %>
         <%= form.radio_button :flight_id, flight.id %>
-        <%= form.label :flight_id,
-        "Flight #{flight.number} from #{flight.departure_airport[:code]}
-        to #{flight.arrival_airport[:code]}, 
-        on #{flight.departure_date_formatted} 
-        at #{flight.departure_time_formatted}" %>
+        <%= form.label :flight_id, flight.number %>
+        <ul>
+          <li>Departing from: <%= "#{flight.departure_airport[:code]} on #{flight.departure_date_formatted} at #{flight.departure_time_formatted}" %></li>
+          <li>Arriving in: <%= "#{flight.arrival_airport[:code]} on #{flight.arrival_date_formatted} at #{flight.arrival_time_formatted}" %></li>
+          <li>Flight duration: <%= flight.duration_formatted %></li>
+        </ul>
 
         <%= form.hidden_field :passengers, value: params[:passengers]%>
 

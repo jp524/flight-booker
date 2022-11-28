@@ -12,4 +12,23 @@ class Flight < ApplicationRecord
   def departure_time_formatted
     departure_time.strftime('%I:%M %p %Z')
   end
+
+  def arrival_time
+    departure_time + duration * 60
+    # duration given in minutes
+  end
+
+  def arrival_date_formatted
+    arrival_time.strftime('%b %d, %Y')
+  end
+
+  def arrival_time_formatted
+    arrival_time.strftime('%I:%M %p %Z')
+  end
+
+  def duration_formatted
+    hours = duration / 60
+    minutes = duration % 60
+    "#{hours}h #{minutes}m"
+  end
 end
