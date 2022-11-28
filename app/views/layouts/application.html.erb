@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FlightBooker</title>
+    <title>Odin Flight Booker</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag 'application',
+      'https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap',
+      media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
+    <div class="header">
+      <div class="root"><%= link_to "Odin Flight Booker", root_path %></div>
+    </div>
+
     <%= yield %>
+
+    <div class="footer">
+      <p>Copyright © <a href="https://github.com/jp524">JP</a> 2022</p>
+    </div>
   </body>
 </html>
