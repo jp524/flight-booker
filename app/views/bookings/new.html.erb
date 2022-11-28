@@ -1,21 +1,27 @@
-<h1>New Booking</h1>
-
-<%= form_with model: @booking do |booking_form| %>
-  <%= render partial: "shared/flight_info", locals: {flight: @selected_flight} %>
-  <%= booking_form.hidden_field :flight_id, value: @selected_flight.id %>
-
-  <p>Passenger Information</p>
-  <ul>
-    <%= booking_form.fields_for :passengers do |passenger_form| %>
-      <li>
-        <%= passenger_form.label :name, 'Name: ' %>
-        <%= passenger_form.text_field :name %>
-
-        <%= passenger_form.label :email, 'Email: ' %>
-        <%= passenger_form.email_field :email %>
-      </li>
-    <% end %>
-  </ul>
-
-  <%= booking_form.submit "Book" %>
-<% end %>
+<div class="bookings-new">
+  <h1>New Booking</h1>
+  
+  <%= form_with model: @booking do |booking_form| %>
+    <%= render partial: "shared/flight_info", locals: {flight: @selected_flight} %>
+    <%= booking_form.hidden_field :flight_id, value: @selected_flight.id %>
+  
+    <div class="passengers-form">
+      <h3>Passenger Information</h3>
+      <ul>
+        <%= booking_form.fields_for :passengers do |passenger_form| %>
+          <li>
+            <div class="passenger-name">
+              <%= passenger_form.label :name, 'Name: ' %>
+              <%= passenger_form.text_field :name %>
+            </div>
+            <div class="passenger-email">
+              <%= passenger_form.label :email, 'Email: ' %>
+              <%= passenger_form.email_field :email %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+      <%= booking_form.submit "Book" %>
+    </div>
+  <% end %>
+</div>
