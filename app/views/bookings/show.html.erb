@@ -1,11 +1,20 @@
-<h1>Booking</h1>
+<div class="bookings-show">
+  <h1>Booking Information</h1>
+  
+  <h3>Flight</h3>
+  <%= render partial: "shared/flight_info", locals: {flight: @booking.flight} %>
 
-<p>Flight</p>
-<%= render partial: "shared/flight_info", locals: {flight: @booking.flight} %>
+  <% if @booking.passengers.length > 1 %>
+    <h3>Passengers</h3>
+  <% else %>
+    <h3>Passenger</h3>
+  <% end %>
 
-<%= @booking.passengers.length > 1 ? "Passengers" : "Passenger" %>
-<% @booking.passengers.map do |passenger| %>
-  <ul>
-    <li><%= "#{passenger[:name]}, #{passenger[:email]}" %></li>
-  </ul>
-<% end %>
+  <div class="passengers">
+    <% @booking.passengers.map do |passenger| %>
+      <ul>
+        <li><%= "#{passenger[:name]}, #{passenger[:email]}" %></li>
+      </ul>
+    <% end %>
+  </div>
+</div>

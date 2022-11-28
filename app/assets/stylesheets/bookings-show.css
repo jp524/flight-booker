@@ -1,0 +1,12 @@
+.bookings-show .passengers {
+  background-color: white;
+  margin: 10px 0;
+  padding: 10px 20px;
+  border: solid 1px lightgrey;
+  border-radius: 8px;
+  box-shadow: 0 3px 3px lightgrey;
+}
+
+.bookings-show ul {
+  list-style-type: none;
+}
