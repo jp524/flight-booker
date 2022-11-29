@@ -1,24 +1,19 @@
-# README
+# Odin Flight Booker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Built as part of [The Odin Project's Full Stack Ruby on Rails](https://www.theodinproject.com/paths/full-stack-ruby-on-rails?) curriculum: [Project: Flight Booker](https://www.theodinproject.com/lessons/ruby-on-rails-flight-booker) lesson.
 
-Things you may want to cover:
+In this app a user can search for flights between ten major airports for a given date. Once a flight is selected, the user can proceed to book a flight.
 
-* Ruby version
+Search Page | Search Results Page
+:-------------------------:|:-------------------------:
+![Search Page](screenshots/search.png) | ![Search Results Page](screenshots/search_results.png)
 
-* System dependencies
+New Booking Page | Booking Info Page
+:-------------------------:|:-------------------------:
+![New Booking Page](screenshots/new_booking.png) | ![Booking Info Page](screenshots/booking_info.png)
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Techniques Implemented
+* Working with Airport, Flight, Booking and Passenger models using `belongs_to/has_many` relationships
+* HTMLs form for event information, including collection selects, date and time
+* Passing params between different models
+* Methods in models to generate information from data entered
