@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to @booking
     else
-      @selected_flight = Flight.find(params[:flight_id])
+      @selected_flight = Flight.find(params[:booking][:flight_id])
       render :new, status: :unprocessable_entity
     end
   end

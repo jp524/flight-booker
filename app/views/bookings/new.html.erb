@@ -24,4 +24,10 @@
       <%= booking_form.submit "Book" %>
     </div>
   <% end %>
+
+  <% if @booking.errors.any? %>
+    <% @booking.errors.full_messages.each do |message| %>
+      <div class="error-msg"><%= message %></div>
+    <% end %>
+  <% end %>
 </div>

@@ -31,6 +31,13 @@ Flight.create!(
     departure_time: DateTime.new(2022, 12, 20, 8, 5, 0, '-05:00'),
     duration: 149
   }, {
+    number: 'AA1051',
+    departure_airport_id: 1,
+    arrival_airport_id: 10,
+    departure_date: Date.new(2022, 12, 20),
+    departure_time: DateTime.new(2022, 12, 20, 18, 19, 0, '-05:00'),
+    duration: 153
+  }, {
     number: 'NH125',
     departure_airport_id: 3,
     arrival_airport_id: 5,
