@@ -1,0 +1,5 @@
+Your booking for flight <%= @flight.number %>:
+
+Departing from: <%= "#{@flight.departure_airport[:code]} on #{@flight.departure_date_formatted} at #{@flight.departure_time_formatted}" %>
+Arriving in: <%= "#{@flight.arrival_airport[:code]} on #{@flight.arrival_date_formatted} at #{@flight.arrival_time_formatted}" %>
+Flight duration: <%= @flight.duration_formatted %>
